@@ -45,8 +45,10 @@ export class ModelService {
     return this._api.get(url)
       .do(json => {
         this._cache.set(key, json);
-      })
-      .share();
+      });
+  }
+  save(url, obj) {
+    return this._api.save(url, obj);
   }
   // don't cache here since we're creating
   create() {

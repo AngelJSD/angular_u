@@ -38,20 +38,13 @@ export class XLargeDirective {
   <h3 id="universal">Angular2 Universal</h3>
   <nav>
     <a routerLinkActive="router-link-active" routerLink="home">Home</a>
-    <a routerLinkActive="router-link-active" routerLink="about">About</a>
-    <a routerLinkActive="router-link-active" routerLink="todo">Todo</a>
-    <a routerLinkActive="router-link-active" routerLink="lazy">Lazy</a>
+    <a routerLinkActive="router-link-active" routerLink="todo">ToDo</a>
   </nav>
   <div class="hero-universal">
     <div class="inner-hero">
       <div>
         <span xLarge>Universal JavaScript {{ title }}!</span>
       </div>
-
-      Two-way binding: <input type="text" [value]="title" (input)="title = $event.target.value">
-
-      <br>
-      <br>
 
       <strong>Router-outlet:</strong>
       <main>
@@ -62,5 +55,5 @@ export class XLargeDirective {
   `
 })
 export class AppComponent {
-  title = 'ftw';
+  title = 'Server Render Angular 2';
 }

@@ -58,16 +58,18 @@ function cacheControl(req, res, next) {
 }
 // Serve static files
 app.use('/assets', cacheControl, express.static(path.join(__dirname, 'assets'), {maxAge: 30}));
+app.use('/database', express.static(path.join(__dirname, 'database/db.json')));
 app.use(cacheControl, express.static(path.join(ROOT, 'dist/client'), {index: false}));
 
 //
 /////////////////////////
 // ** Example API
 // Notice API should be in aseparate process
-import { serverApi, createTodoApi } from './backend/api';
+import { serverApi } from './backend/api';
 // Our API for demos only
 app.get('/data.json', serverApi);
-app.use('/api', createTodoApi());
+
+//app.use('/api', createTodoApi());
 
 process.on('uncaughtException', function (err) { 
   console.error('Catching uncaught errors to avoid process crash', err);
